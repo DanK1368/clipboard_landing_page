@@ -106,7 +106,7 @@ main-grid {
 /* Main Header Section*/
 
 main {
-  background-image: url(/images/bg-header-mobile.png);
+  background-image: url(clipboard_landing_page/images/bg-header-mobile.png);
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -254,10 +254,6 @@ main {
     @include flex(row, space-evenly, center);
     width: 50%;
 
-    svg path {
-      display: block;
-    }
-
     svg path:hover {
       fill: $primary-color;
       cursor: pointer;
@@ -299,7 +295,7 @@ main {
 
 @media screen and (min-width: 530px) {
   main {
-    background: url(/images/bg-header-desktop.png);
+    background: url(clipboard_landing_page/images/bg-header-desktop.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
