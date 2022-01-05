@@ -175,7 +175,7 @@ main-grid {
 
 /* Main Header Section*/
 main {
-  background-image: url(/images/bg-header-mobile.png);
+  background-image: url(clipboard_landing_page/images/bg-header-mobile.png);
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -390,7 +390,11 @@ main {
   display: -ms-grid;
   display: grid;
   gap: 2.5rem;
-      grid-template-areas: "faqs" "contact" "privacy" "press" "install";
+      grid-template-areas: "faqs"
+ "contact"
+ "privacy"
+ "press"
+ "install";
   place-items: center;
 }
 
@@ -500,7 +504,7 @@ main {
 
 @media screen and (min-width: 530px) {
   main {
-    background: url(/images/bg-header-desktop.png);
+    background: url(clipboard_landing_page/images/bg-header-desktop.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
@@ -564,7 +568,9 @@ main {
   .main-footer .footer-company-info {
     text-align: left;
     gap: 2rem;
-        grid-template-areas: "faqs install" "privacy contact" "press .";
+        grid-template-areas: "faqs install"
+ "privacy contact"
+ "press .";
     place-items: start;
     -webkit-box-flex: 2;
         -ms-flex: 2 1 20rem;
