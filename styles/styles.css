@@ -175,7 +175,7 @@ main-grid {
 
 /* Main Header Section*/
 main {
-  background-image: url(clipboard_landing_page/images/bg-header-mobile.png);
+  background-image: url(/clipboard_landing_page/images/bg-header-mobile.png);
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -504,7 +504,7 @@ main {
 
 @media screen and (min-width: 530px) {
   main {
-    background: url(clipboard_landing_page/images/bg-header-desktop.png);
+    background: url(/clipboard_landing_page/images/bg-header-desktop.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
