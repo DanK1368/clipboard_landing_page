@@ -1,0 +1,410 @@
+@import "resets";
+
+/* Style Guide */
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+// $header1: 4.5rem;
+// $header2: 3.5rem;
+// $header3: 2.5rem;
+// $text: 1.8rem;
+$header1: 3.3rem;
+$header2: 2.7rem;
+$header3: 2.3rem;
+$text: 1.8rem;
+$main-font: "Bai Jamjuree", sans-serif;
+$main-text-color: hsl(201, 11%, 90%);
+$header-color: hsl(210, 10%, 33%);
+$primary-color: hsl(171, 66%, 44%);
+$secondary-color: hsl(233, 100%, 69%);
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+body {
+  font-family: $main-font;
+  font-size: $text;
+}
+
+p {
+  opacity: 0.5;
+}
+
+h1,
+h2,
+h3,
+a {
+  color: $header-color;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: $header1;
+}
+h2 {
+  font-size: $header2;
+}
+h3 {
+  font-size: $header3;
+}
+
+a {
+  text-decoration: none;
+}
+
+main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/*Button Style*/
+
+.button-wrapper {
+  :nth-child(1) {
+    background: $primary-color;
+    box-shadow: 0px -2px hsl(171, 66%, 40%) inset;
+    margin-bottom: 2.5rem;
+  }
+  :nth-child(2) {
+    background: $secondary-color;
+    box-shadow: 0px -2px hsl(233, 100%, 66%) inset;
+  }
+
+  button {
+    color: white;
+    font-weight: 600;
+    padding: 1rem 0rem;
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Utility Classes*/
+
+.content-width {
+  width: 90%;
+  margin: auto;
+}
+
+.flex-article {
+  @include flex(column, center, center);
+  min-height: 90vh;
+}
+
+/* Main Header Section*/
+
+main {
+  background-image: url(/images/bg-header-mobile.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.main-header {
+  min-height: 100vh;
+  @include flex(column, center, center);
+  text-align: center;
+
+  #logo {
+    margin-bottom: 5rem;
+  }
+
+  h1 {
+    line-height: 1.3;
+  }
+
+  p {
+    padding: 1rem 0rem 5rem 0rem;
+  }
+
+  .button-wrapper {
+    @include flex(column, center, center);
+    width: 100%;
+  }
+}
+
+/* Article Sections */
+
+.article-header {
+  width: 100%;
+  text-align: center;
+  min-height: 25rem;
+  padding-top: 3rem;
+  h2 {
+    padding-bottom: 1.5rem;
+  }
+  p {
+    max-width: 60ch;
+    margin: auto;
+  }
+}
+
+.sub-header {
+  text-align: center;
+  @include flex(column, space-evenly, center);
+  height: 50rem;
+  h3 {
+    padding-bottom: 0.5rem;
+  }
+}
+
+.sub-header-logo {
+  text-align: center;
+  @include flex(column, space-evenly, center);
+  h3 {
+    padding: 3rem 0rem 2rem 0rem;
+  }
+}
+
+/*Snippet Section*/
+
+.snippet-content-wrapper {
+  img {
+    padding-top: 3rem;
+  }
+}
+/*Supercharge Workflow Section*/
+
+.workflow-content-wrapper {
+  @include flex(column, space-evenly, center);
+  height: 80rem;
+}
+
+.company-logo-wrapper {
+  height: 50rem;
+  @include flex(column, space-around, center);
+}
+
+/*Clipboard Article*/
+
+.clipboard-article {
+  .button-wrapper {
+    width: 100%;
+  }
+}
+
+.clipboard-article {
+  @include flex(column, center, center);
+  min-height: 80vh;
+}
+
+/*Footer Section*/
+
+.main-footer {
+  padding: 3rem 0rem;
+  min-height: 60vh;
+  background: $main-text-color;
+  @include flex(column, space-around, center);
+
+  .footer-image-wrapper {
+    @include flex(row, center, center);
+    width: 15%;
+  }
+
+  .footer-company-info {
+    padding: 2rem 0rem;
+    display: grid;
+    gap: 2.5rem;
+    grid-template-areas:
+      "faqs"
+      "contact"
+      "privacy"
+      "press"
+      "install";
+    place-items: center;
+
+    a {
+      width: fit-content;
+    }
+
+    a:hover {
+      color: $primary-color;
+    }
+  }
+
+  .footer-company-info a:nth-child(1) {
+    grid-area: faqs;
+  }
+  .footer-company-info a:nth-child(2) {
+    grid-area: privacy;
+  }
+  .footer-company-info a:nth-child(3) {
+    grid-area: install;
+  }
+  .footer-company-info a:nth-child(4) {
+    grid-area: contact;
+  }
+  .footer-company-info a:nth-child(5) {
+    grid-area: press;
+  }
+
+  .social-media-wrapper {
+    @include flex(row, space-evenly, center);
+    width: 50%;
+
+    svg path {
+      display: block;
+    }
+
+    svg path:hover {
+      fill: $primary-color;
+      cursor: pointer;
+    }
+  }
+}
+
+/*Media Queries*/
+
+@media screen and (max-width: 325px) {
+  .flex-article {
+    padding: 3rem;
+  }
+
+  .main-header {
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      padding: 1rem 0rem 2rem 0rem;
+    }
+  }
+
+  .main-head-image-wrapper {
+    @include flex(row, center, center);
+    padding-top: 3rem;
+    img {
+      width: 60%;
+    }
+  }
+
+  .footer-image-wrapper {
+    padding-bottom: 3rem;
+  }
+  .social-media-wrapper {
+    padding-top: 3rem;
+  }
+}
+
+@media screen and (min-width: 530px) {
+  main {
+    background: url(/images/bg-header-desktop.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .main-header,
+  .clipboard-article {
+    .button-wrapper {
+      max-width: 50rem;
+      :nth-child(1) {
+        margin: 0px;
+      }
+      @include flex(row, space-around, center);
+      button {
+        width: 22rem;
+      }
+    }
+  }
+
+  .content-width {
+    max-width: 200rem;
+  }
+
+  .clipboard-article {
+    min-height: 50rem;
+  }
+
+  .main-footer {
+    @include flex(row, space-around, center);
+    flex-wrap: wrap;
+    min-height: 10rem;
+    max-width: 100%;
+
+    .footer-image-wrapper {
+      flex: 1 1 10rem;
+      img {
+        width: 6rem;
+      }
+    }
+
+    .footer-company-info {
+      text-align: left;
+      gap: 2rem;
+      grid-template-areas:
+        "faqs install"
+        "privacy contact"
+        "press .";
+      place-items: start;
+      flex: 2 1 20rem;
+    }
+
+    .social-media-wrapper {
+      flex: 1 1 10rem;
+      @include flex(row, center, center);
+      svg {
+        margin: 0rem 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 970px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3.5rem;
+  }
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  .snippet-content-wrapper {
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+    max-width: 150rem;
+
+    .snippet-image-wrapper {
+      flex: 2 1 50rem;
+
+      img {
+        transform: translateX(-15rem);
+      }
+    }
+
+    .sub-header {
+      text-align: left;
+      flex: 1 1 30rem;
+      @include flex(column, space-evenly, flex-start);
+      max-width: 50ch;
+      margin: auto;
+    }
+  }
+
+  .workflow-content-wrapper {
+    max-width: 150rem;
+    @include flex(row, space-evenly, center);
+    height: 20rem;
+    .sub-header-logo {
+      margin: 2rem;
+    }
+  }
+  .company-logo-wrapper {
+    @include flex(row, space-evenly, center);
+    width: 100%;
+    height: 30rem;
+  }
+}
